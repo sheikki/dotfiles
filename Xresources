@@ -1,0 +1,80 @@
+!!! Xft
+Xft.dpi:			96
+Xft.antialias:			true
+Xft.rgba:			rgb
+Xft.hinting:			true
+Xft.hintstyle:			hintslight
+Xft.autohint:			false
+Xft.lcdfilter:			lcddefault
+
+!!! URxvt
+URxvt*termName:			rxvt-unicode-256color
+URxvt*hold:			false
+URxvt.depth:			32
+URxvt.geometry:			90x30
+URxvt.transparent:		false
+URxvt.fading:			0
+URxvt.urgentOnBell:		true
+URxvt.visualBell:		true
+URxvt.loginShell:		true
+URxvt.saveLines:		10000
+URxvt.internalBorder:		0
+URxvt.externalBorder:		0
+URxvt.lineSpace:		0
+URxvt.intensityStyles:		false
+URxvt.font:			xft:Hack:pixelsize=14:style=Regular
+URxvt.boldFont:			xft:Hack:pixelsize=14:style=Bold
+Urxvt.italicFont:		xft:Hack:pixelsize=14:style=Italic
+URxvt.boldItalicFont:		xft:Hack:pixelsize=14:style=Bold Italic
+URxvt*buffered:			true
+URxvt*letterSpace:		0
+URxvt.scrollStyle:		rxvt
+URxvt.scrollBar:		false
+URxvt.perl-ext-common:		default,matcher,selection-to-clipboard
+URxvt.keysym.M-w:		perl:clipboard:copy1
+URxvt.keysym.C-y:		perl:clipboard:paste
+URxvt.clipboard.autocopy:	true
+URxvt.matcher.button:		1
+URxvt.urlLauncher:		firefox
+URxvt.cursorBlink:		true
+URxvt.cursorColor:		#50FA7B
+URxvt.cursorUnderline:		false
+URxvt.pointerBlank:		true
+URxvt*visualBell:		true
+URxvt*borderless:		true
+
+!!! XTerm
+Xterm*font:			xft:Hack:pixelsize=14:style=Regular
+XTerm*boldFont:			-*-ubuntu mono-medium-r-*-*-30-*-*-*-*-*-*-*
+XTerm*boldMode:			false
+XTerm*scrollBar:		false
+XTerm*saveLines:		32767
+XTerm*borderLess:		true
+XTerm*cursorColor:		orange
+XTerm*cursorBlink:		true
+XTerm*pastableTabs:		true
+XTerm*jumpScroll:		true
+
+!!! Emacs
+Emacs.FontBackend:		xft
+Emacs.font:			Hack:size=14:style=Regular
+
+!!! Dracula Xresources palette
+*.foreground:			#F8F8F2
+*.background:			#282A36
+*.color0:			#000000
+*.color8:			#4D4D4D
+*.color1:			#FF5555
+*.color9:			#FF6E67
+*.color2:			#50FA7B
+*.color10:			#5AF78E
+*.color3:			#F1FA8C
+*.color11:			#F4F99D
+*.color4:			#CAA9FA
+*.color12:			#CAA9FA
+*.color5:			#FF79C6
+*.color13:			#FF92D0
+*.color6:			#8BE9FD
+*.color14:			#9AEDFE
+*.color7:			#BFBFBF
+*.color15:			#E6E6E6
