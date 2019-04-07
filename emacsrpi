@@ -1,0 +1,125 @@
+;;; package --- Summary
+;;; Emacs dotfile
+;;; Commentary:
+;;; Code:
+
+(require 'package)
+;; Enable melpa
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(package-initialize)
+
+;; Enable my custom theme
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/rainbowdash-theme")
+
+;; Things we need
+(require 'anzu)
+(require 'company)
+(require 'company-flx)
+(require 'company-shell)
+(require 'dracula-theme)
+(require 'emojify)
+(require 'flycheck)
+(require 'nyan-mode)
+(require 'helm-config)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(display-time-24hr-format t)
+ '(display-time-day-and-date t)
+ '(display-time-default-load-average nil)
+ '(display-time-mode t)
+ '(explicit-shell-file-name "/bin/bash")
+ '(flycheck-sh-shellcheck-executable "/usr/local/bin/shellcheck")
+ '(flycheck-status-emoji-mode t)
+ '(fringe-mode 1 nil (fringe))
+ '(global-anzu-mode t)
+ '(global-emojify-mode t)
+ '(global-flycheck-mode t)
+ '(global-hl-line-mode t)
+ '(helm-mode t)
+ '(inhibit-startup-screen t)
+ '(menu-bar-mode nil)
+ '(nyan-animate-nyancat t)
+ '(nyan-bar-length 28)
+ '(nyan-minimum-window-width 96)
+ '(nyan-mode t)
+ '(package-selected-packages
+   (quote
+    (frameshot company-flx company-shell company minions rainbow-delimiters rainbow-blocks doom-modeline dracula-theme helm pdf-tools nyan-mode flycheck all-the-icons-dired all-the-icons anzu)))
+ '(scroll-bar-mode nil)
+ '(tool-bar-mode nil)
+ '(tramp-default-method "ssh" nil (tramp))
+ '(which-function-mode t)
+ '(xterm-mouse-mode t))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(term-color-black ((t (:background "#44475a" :foreground "#44475a"))))
+ '(term-color-blue ((t (:background "#6272a4" :foreground "#6272a4"))))
+ '(term-color-cyan ((t (:background "#8be9fd" :foreground "#8be9fd"))))
+ '(term-color-green ((t (:background "#50fa7b" :foreground "#50fa7b"))))
+ '(term-color-magenta ((t (:background "#ff79c6" :foreground "#ff79c6"))))
+ '(term-color-red ((t (:background "#ff5555" :foreground "#ff5555"))))
+ '(term-color-white ((t (:background "#f8f8f2" :foreground "#f8f8f2"))))
+ '(term-color-yellow ((t (:background "#f1fa8c" :foreground "#f1fa8c")))))
+
+(set-display-table-slot standard-display-table
+                        'vertical-border (make-glyph-code 8203))
+
+;; Theme
+(load-theme 'dracula t)
+
+;; Font
+(add-to-list 'default-frame-alist
+             '(font . "Hack-14"))
+
+;; Shortcuts
+(global-set-key (kbd "M-x") #'helm-M-x)
+(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
+(global-set-key (kbd "C-x C-b") #'helm-mini)
+
+;; y-n instead of yes-no
+(fset 'yes-or-no-p 'y-or-n-p)
+
+;; Icons in dired mode
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
+;; pdf-tools
+(pdf-tools-install)
+
+;; Disable hl-line in some modes
+(add-hook 'eshell-mode-hook (lambda ()
+			      (setq-local global-hl-line-mode nil)))
+(add-hook 'term-mode-hook (lambda ()
+			    (setq-local global-hl-line-mode nil)))
+
+(use-package doom-modeline
+  :ensure t
+  :hook (after-init . doom-modeline-mode))
+
+(use-package minions
+  :config (minions-mode 1))
+
+(use-package all-the-icons)
+
+(use-package all-the-icons-dired)
+
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(add-hook 'after-init-hook 'global-company-mode)
+(add-to-list 'company-backends 'company-shell)
+
+(setq display-time-string-forms
+      '((propertize (format-time-string "%A %H:%M" now) 'face 'bold)))
+
+(setq doom-modeline-buffer-file-name-style 'truncate-all)
+
+
+(provide '.emacs)
+;;; .emacs ends here
