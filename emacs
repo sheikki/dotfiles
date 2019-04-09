@@ -102,7 +102,7 @@
 (use-package excorporate
   :ensure t
   :config
-  (setq excorporate-configuration (quote ("heikki.salavirta@thermofisher.com" . "https://outlook.office365.com/EWS/Exchange.asmx"))))
+  (setq excorporate-configuration (quote ("user@domain.com" . "https://outlook.office365.com/EWS/Exchange.asmx"))))
 
 (use-package flycheck
   :ensure t
